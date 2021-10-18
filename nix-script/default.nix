@@ -22,7 +22,6 @@ in pkgs.stdenv.mkDerivation {
     mkdir -p $out/bin
 
     makeWrapper ${nix-script}/bin/nix-script $out/bin/nix-script \
-      --set NIX_PATH nixpkgs=${pinnedPkgs} \
       --prefix PATH : ${pkgs.lib.makeBinPath [ pkgs.nix ]}
   '';
 }
